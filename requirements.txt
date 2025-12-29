@@ -1,0 +1,27 @@
+# GUI Framework
+PyQt5==5.15.10
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.13.0
+
+# Database Connectivity
+mysql-connector-python==8.2.0
+
+# Data Processing and Validation
+python-dateutil==2.8.2
+
+# Reporting and Visualization (Optional but recommended)
+matplotlib==3.8.2
+numpy==1.26.2
+
+# PDF Export (Optional for reports)
+reportlab==4.0.7
+
+# Excel Export (Optional for reports)
+openpyxl==3.1.2
+xlsxwriter==3.1.9
+
+# Password Hashing (Security)
+bcrypt==4.1.2
+
+# Configuration Management
+python-dotenv==1.0.0
