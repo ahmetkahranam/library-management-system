@@ -227,7 +227,6 @@ class DashboardWindow(QMainWindow):
             # 'Kitap Teslim Al' butonu kaldırıldı
             ('Ceza Görüntüleme', self.open_penalty_management, '#E74C3C', 1),
             ('Raporlar', self.open_reports, '#1A4D70', 1),
-            ('Dinamik Sorgu', self.open_dynamic_query, '#27ae60', 3),  # 3 sütun kapla
         ]
         
         row, col = 0, 0
@@ -344,14 +343,6 @@ class DashboardWindow(QMainWindow):
             self.reports_window = ReportsWindow(self)
             self.stacked_widget.addWidget(self.reports_window)
         self.show_page(self.reports_window, 'Raporlar')
-    
-    def open_dynamic_query(self):
-        """Dinamik sorgu ekranini ac"""
-        from src.ui.dynamic_query_window import DynamicQueryWindow
-        if not hasattr(self, 'dynamic_query_window') or self.dynamic_query_window is None:
-            self.dynamic_query_window = DynamicQueryWindow(self)
-            self.stacked_widget.addWidget(self.dynamic_query_window)
-        self.show_page(self.dynamic_query_window, 'Dinamik Sorgu ve Raporlama')
     
     def show_page(self, widget, title):
         """Belirtilen sayfayı göster"""
