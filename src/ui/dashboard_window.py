@@ -85,6 +85,30 @@ class DashboardWindow(QMainWindow):
         menu_frame = self.create_menu_section()
         layout.addWidget(menu_frame)
         
+        # Dinamik sorgu butonu (tam genişlik, yeşil)
+        dynamic_query_btn = QPushButton('📊 Dinamik Sorgu ve Raporlama')
+        dynamic_query_btn.setMinimumHeight(80)
+        dynamic_query_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #27AE60;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 16px;
+                font-weight: bold;
+                padding: 20px;
+                margin-top: 10px;
+            }
+            QPushButton:hover {
+                background-color: #229954;
+            }
+            QPushButton:pressed {
+                background-color: #1e8449;
+            }
+        """)
+        dynamic_query_btn.clicked.connect(self.open_dynamic_query)
+        layout.addWidget(dynamic_query_btn)
+        
         layout.addStretch()
         page.setLayout(layout)
         return page
@@ -343,6 +367,14 @@ class DashboardWindow(QMainWindow):
             self.reports_window = ReportsWindow(self)
             self.stacked_widget.addWidget(self.reports_window)
         self.show_page(self.reports_window, 'Raporlar')
+    
+    def open_dynamic_query(self):
+        """Dinamik sorgu ekranini ac"""
+        from src.ui.dynamic_query_window import DynamicQueryWindow
+        if not hasattr(self, 'dynamic_query_window') or self.dynamic_query_window is None:
+            self.dynamic_query_window = DynamicQueryWindow(self)
+            self.stacked_widget.addWidget(self.dynamic_query_window)
+        self.show_page(self.dynamic_query_window, 'Dinamik Sorgu ')
     
     def show_page(self, widget, title):
         """Belirtilen sayfayı göster"""
