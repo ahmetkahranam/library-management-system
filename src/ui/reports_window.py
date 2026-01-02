@@ -93,19 +93,19 @@ class ReportsWindow(QWidget):
         overdue_btn.clicked.connect(self.open_overdue_report)
         grid.addWidget(overdue_btn, 1, 0)
         
-        # Istatistikler
-        stats_btn = QPushButton('İstatistikler')
-        stats_btn.setMinimumHeight(80)
-        stats_btn.clicked.connect(self.open_statistics)
-        grid.addWidget(stats_btn, 1, 1)
-        
         # Tarih Aralığı Raporu
         loan_period_btn = QPushButton('Tarih Aralığı Raporu')
         loan_period_btn.setMinimumHeight(80)
         loan_period_btn.clicked.connect(self.open_loan_period_report)
-        grid.addWidget(loan_period_btn, 2, 0)
+        grid.addWidget(loan_period_btn, 1, 1)
         
         layout.addLayout(grid)
+        
+        # Istatistikler - Tam genişlikte en altta
+        stats_btn = QPushButton('İstatistikler')
+        stats_btn.setMinimumHeight(80)
+        stats_btn.clicked.connect(self.open_statistics)
+        layout.addWidget(stats_btn)
         layout.addStretch()
         
         page.setLayout(layout)
