@@ -48,6 +48,9 @@ env/
 
 # Environment variables
 .env
+
+# Documentation (kept locally only)
+README.md
 .env.local
 config.ini
 
@@ -68,3 +71,4 @@ test_data/
 
 doc.pdf
 doc.txt
+README.md
